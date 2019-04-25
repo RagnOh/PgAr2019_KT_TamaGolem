@@ -9,10 +9,12 @@ public class Tamagolem
 	int vitaMax;
 	boolean isSulCampo = false;
 	boolean isAlive = true;
+	private String nome;
 
-	public TamaGolem()	//COSTRUTTORE -> si deve dare: numPietre, vitaMax ,lanciatore
+	public Tamagolem(String _nome)	//COSTRUTTORE -> si deve dare: numPietre, vitaMax ,lanciatore
 	{
 
+		nome=_nome;
 	}
 
 	public void setVita (int valore)
@@ -40,5 +42,10 @@ public class Tamagolem
 	public int getVita ()
 	{
 		return vita;
+	}
+	
+	public String getNome() {
+		
+		return nome;
 	}
 }
