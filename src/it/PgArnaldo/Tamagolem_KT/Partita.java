@@ -9,6 +9,9 @@ public class Partita {
 	private int numPietre;
 	private int numPietreScorta;
 	private int numPietreElem;
+	private Lotta l1;
+	
+	
 	
 	
 	
@@ -22,14 +25,13 @@ public class Partita {
 		numPietre=((numElementi+1)/3)+1;
 		numPietreScorta=((2*numGolem*numPietre)/numElementi)*numElementi;
 		numPietreElem=((2*numGolem*numPietre)/numElementi);
+		
+		l1=new Lotta(numGolem);
+		
 	}
 	
 	
 	
-	public Squadra inizSquad() {
-		
-		
-		return new Squadra(numGolem);
-	}
+	
 	
 }
