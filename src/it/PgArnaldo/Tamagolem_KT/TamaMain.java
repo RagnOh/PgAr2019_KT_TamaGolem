@@ -4,7 +4,10 @@ public class TamaMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-	Partita a= new Partita("d","d",9);
+	
+		InterfacciaLotta a=new InterfacciaLotta();
+		
+		//Partita a= new Partita("d","d",9);
 
 	}
 

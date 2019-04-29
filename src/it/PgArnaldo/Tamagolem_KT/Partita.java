@@ -21,12 +21,12 @@ public class Partita {
 		nomeG1=_nomeG1;
 		nomeG2=_nomeG2;
 		numElementi=_numElementi;
-		numGolem = ((numElementi-1)*(numElementi-2))/ (2*(((numElementi+1)/3) +1));		// formula per calcolare il numero di Golem
 		numPietre=((numElementi+1)/3)+1;
+		numGolem = ((numElementi-1)*(numElementi-2))/ (2*(((numElementi+1)/3) +1));		// formula per calcolare il numero di Golem
 		numPietreScorta=((2*numGolem*numPietre)/numElementi)*numElementi;
 		numPietreElem=((2*numGolem*numPietre)/numElementi);
 		
-		l1=new Lotta(numGolem);
+		l1=new Lotta(numGolem,numPietre);
 		
 	}
 	
