@@ -27,11 +27,11 @@ public class Squadra
 	 * @param tama Tamagolem da aggiungere alla squadra
 	 * @return Ritorna verso se l' operazione è andata a buon fin altrimenti falso
 	 */
-	public boolean addTama(Tamagolem tama) {
+	public boolean addTama(String nome) {
 		
 		
 		if (conteggioSquad<=numGolem) {
-		squadraGolem.add(conteggioSquad, tama);
+		squadraGolem.add(new Tamagolem(nome));
 		conteggioSquad++;
 		return true;
 		}

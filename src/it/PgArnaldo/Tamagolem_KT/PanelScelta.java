@@ -18,6 +18,7 @@ public class PanelScelta extends JPanel implements ItemListener {
 	private JCheckBox check1;
 	private boolean isSelected=false;
 	private boolean wasSelected=false;
+	private boolean giaP=false;
 	
 	
 	public PanelScelta(String _tamaName) {
@@ -41,6 +42,7 @@ public class PanelScelta extends JPanel implements ItemListener {
 		
 		this.add(label1,BorderLayout.NORTH);
 		this.add(check1,BorderLayout.SOUTH);
+		check1.addItemListener(this);
 		
 	}
 
@@ -53,11 +55,18 @@ public class PanelScelta extends JPanel implements ItemListener {
 		if(check1.isSelected()) {
 			
 			isSelected=true;
+			
+			wasSelected=false;
+			
 		}
 		
 		else {
+			if(isSelected==true) {
 			
-			isSelected=false;
+				wasSelected=true;
+				isSelected=false;
+			
+			}
 		}
 	}
 	
@@ -69,6 +78,21 @@ public class PanelScelta extends JPanel implements ItemListener {
 	
 	public boolean getSelection() {
 		
-		return isSelected;
+		return wasSelected;
+	}
+	
+	public boolean giaP() {
+		
+		return giaP;
+	}
+	
+	public void setgiaP(boolean a) {
+		
+		giaP=a;
+	}
+	
+	public String getTamaName() {
+		
+		return tamaName;
 	}
 }

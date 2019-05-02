@@ -39,12 +39,22 @@ public class InterfacciaLotta extends JFrame implements KeyListener{
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		Squadra s1=new Squadra(6);
+		Squadra s2=new Squadra(6);
+		
 		
 		introIniziale();
-		IGestioneSquad p1 = new IGestioneSquad();
+		IGestioneSquad player = new IGestioneSquad("G1",s1);
 		
-		p1.AggiungiElementi(panelA);
- 		
+		player.AggiungiElementi(panelA);
+		
+		player=new IGestioneSquad("G2",s2);
+		
+		player.AggiungiElementi(panelA);
+		
+		s1.stampaSquad();
+		System.out.println(" ");
+		s2.stampaSquad();
 	}
 	
 	

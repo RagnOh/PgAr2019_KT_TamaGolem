@@ -18,28 +18,26 @@ public class Lotta {
 		numGolem=_numGolem;
 		numPietre=_numPietre;
 		
-		squadra1=inizTeam();
+		/*squadra1=inizTeam();
 		squadra1.stampaSquad();
 		System.out.println("     ");
 		squadra2=inizTeam();
 		squadra2.stampaSquad();
+		*/
 	}
 	
+	/*
 	
-	/**
-	 * Inizializza una squadra di Tamagolem
-	 * @return Ritorna la squadra inizializzata
-	 */
 	private Squadra inizTeam() {
 		
 		Squadra squad=new Squadra(numGolem);
 		for(int i=0;i<numGolem;i++) {
 		String nome="c";
-		squad.addTama(new Tamagolem(nome));
+		squad.addTama(new Tamagolem(nome,));
 		}
 		
 		return squad;
-	}
+	}*/
 	
 
 

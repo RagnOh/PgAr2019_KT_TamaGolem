@@ -2,13 +2,15 @@ package it.PgArnaldo.Tamagolem_KT;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class IGestioneSquad {
+public class IGestioneSquad implements ActionListener{
 
 	private JButton avanti;
 	private ArrayList<PanelScelta> scelte= new ArrayList<PanelScelta>();
@@ -17,12 +19,16 @@ public class IGestioneSquad {
 	private  BorderLayout bordi2;
 	private int clicked=0;
 	private int conteggio=0;
+	private String nomeGiocatore;
+	private Squadra squad;
 	
 	//---------------------------------------------------------------------------
 	
-	public IGestioneSquad() {
+	public IGestioneSquad(String _nomeGiocatore,Squadra _squad) {
 		// TODO Auto-generated constructor stub
 	
+		nomeGiocatore=_nomeGiocatore;
+		squad=_squad;
 	
 	}
 	
@@ -53,7 +59,7 @@ public class IGestioneSquad {
 		
 		
 		
-		JLabel label1 = new JLabel("Nome Giocatore");
+		JLabel label1 = new JLabel(nomeGiocatore);
 		JLabel label2 = new JLabel("dic");
 		
 		
@@ -78,9 +84,12 @@ public class IGestioneSquad {
 		panelA.validate();
 		panelA.repaint();
 		
+		avanti.addActionListener(this);
 		
 		controlNumSquad();
+		aggiungiTama();
 		
+		panelA.removeAll();
 		
 	}
 	
@@ -98,23 +107,55 @@ public class IGestioneSquad {
 	
 	private void controlNumSquad(){
 		
-		while(true) {
+		do {
 		for(int i=0;i<scelte.size();i++) {
 			
-	    	if(scelte.get(i).getIsSelected()==true) {
+	    	if(scelte.get(i).getIsSelected()==true  && scelte.get(i).giaP()==false) {
+	    		
 	    		conteggio++;
+	    		scelte.get(i).setgiaP(true);
+	    		
 	    	}
-	    	//else if(conteggio>=6 && )//aggiungi controllo per eliminare check
+	    	else if(scelte.get(i).getSelection() ==true && scelte.get(i).giaP()==true ) {
+	    		
+	    		scelte.get(i).setgiaP(false);
+	    		conteggio--;
+	    		
+	    	}
 	    	
 	    }
 		
 		if (conteggio==6) {
+			
 			avanti.setVisible(true);
 		}
 		
 		else avanti.setVisible(false);
 		
+		}while(clicked==0);
 		}
+
+	//-------------------------------------------------------------------------------------
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		clicked++;
+		
+		
+	}
+	
+	//--------------------------------------------------------------------------------
+	
+	public void aggiungiTama() {
+		
+		for(int i=0;i<scelte.size();i++) {
+			
+			if(scelte.get(i).getIsSelected()==true) {
+				squad.addTama(scelte.get(i).getTamaName());
+			}
 		}
+		
+	}
 	
 }
