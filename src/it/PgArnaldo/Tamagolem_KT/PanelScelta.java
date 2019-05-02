@@ -49,6 +49,7 @@ public class PanelScelta extends JPanel implements ItemListener {
 	@Override
 	public void itemStateChanged(ItemEvent e) {
 		// TODO Auto-generated method stub
+		
 		if(check1.isSelected()) {
 			
 			isSelected=true;
@@ -60,7 +61,13 @@ public class PanelScelta extends JPanel implements ItemListener {
 		}
 	}
 	
+	
 	public boolean getIsSelected() {
+		
+		return isSelected;
+	}
+	
+	public boolean getSelection() {
 		
 		return isSelected;
 	}

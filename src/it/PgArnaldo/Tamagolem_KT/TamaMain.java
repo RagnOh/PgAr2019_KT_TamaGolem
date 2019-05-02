@@ -5,10 +5,11 @@ public class TamaMain {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 	
-		InterfacciaLotta a=new InterfacciaLotta();
+		//InterfacciaLotta a=new InterfacciaLotta();
 		
 		//Partita a= new Partita("d","d",9);
-
+         Equilibrio a = new Equilibrio();
+         a.stampaValori();
 	}
 
 }

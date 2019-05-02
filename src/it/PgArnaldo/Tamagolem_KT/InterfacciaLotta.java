@@ -21,13 +21,12 @@ import javax.swing.UIManager;
 
 public class InterfacciaLotta extends JFrame implements KeyListener{
 
+	
 	private int clicked=0;
 	private JPanel panel1;
-	private JButton avanti;
-	private JLabel label1;
 	private JPanel panelA;
-	private ArrayList<PanelScelta> scelte= new ArrayList<PanelScelta>();
-	private String [] nomi= { "a","b","c","d","e","f","g","h","i","l"};
+	private JLabel label1;
+	private JLabel label2;
 	
 	
 
@@ -42,7 +41,10 @@ public class InterfacciaLotta extends JFrame implements KeyListener{
 		
 		
 		introIniziale();
- 		sceltaSquadre();
+		IGestioneSquad p1 = new IGestioneSquad();
+		
+		p1.AggiungiElementi(panelA);
+ 		
 	}
 	
 	
@@ -53,8 +55,8 @@ public class InterfacciaLotta extends JFrame implements KeyListener{
 		panelA= new JPanel(new BorderLayout());
 	    panel1 = new JPanel(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
-		 label1 = new JLabel("KT Studios Presents");
-		JLabel label2 = new JLabel("..premi un tasto qualsiasi per continuare..");
+		label1 = new JLabel("KT Studios Presents");
+		label2 = new JLabel("..premi un tasto qualsiasi per continuare..");
 		
 	     
 		add(panelA);
@@ -95,6 +97,7 @@ public class InterfacciaLotta extends JFrame implements KeyListener{
 		panel1.removeAll();
 		panel1.setVisible(false);
 		
+		
 	}
 	
 	
@@ -134,62 +137,5 @@ public class InterfacciaLotta extends JFrame implements KeyListener{
 		
 	}
 
-	public void sceltaSquadre() {
-		
-		avanti = new JButton("Conferma");
-		avanti.setSize(80, 80);
-	    BorderLayout bordi=new BorderLayout();
-	    BorderLayout bordi2=new BorderLayout();
-		bordi.setHgap(70);
-		bordi2.setVgap(70);
-		panel1.setVisible(false);
-		panelA.setLayout(bordi);
 	
-		JPanel panel3=new JPanel(new GridLayout(5,2));
-		JPanel panel4=new JPanel(bordi2);
-		
-		
-		//this.add(panel1,BorderLayout.CENTER);
-		panelA.add(panel3,BorderLayout.CENTER);
-		panelA.add(panel4,BorderLayout.EAST);
-		
-		
-		
-		
-		JLabel label1 = new JLabel("Nome Giocatore");
-		JLabel label2 = new JLabel("dic");
-		
-		
-		
-		
-		inizArray();
-		
-		
-	   for(int i=0;i<scelte.size();i++) {
-		   panel3.add(scelte.get(i));
-	   }
-         
-           
-        panel4.add(label1,BorderLayout.NORTH);
-        panel4.add(avanti,BorderLayout.SOUTH);
-       
-		
-		
-		panel3.setVisible(true);
-		panel4.setVisible(true);
-		panelA.validate();
-		panelA.repaint();
-		
-		
-		
-		
-		
-	}
-	
-	private void inizArray() {
-		
-		for(int i=0;i<nomi.length;i++) {
-		scelte.add(new PanelScelta(nomi[i]));
-		}
-	}
 }
