@@ -64,4 +64,20 @@ public class Tamagolem
 		
 		return pietre.get(indice);
 	}
+	
+	public void setPietra(int pos,int num) {
+		
+		pietre.add(pos, num);
+		
+	}
+	
+	public void stampaPietre() {
+		
+		for(int i=0;i<pietre.size();i++) {
+			
+			System.out.println(pietre.get(i));
+		}
+		
+		System.out.println("  ");
+	}
 }

@@ -82,7 +82,10 @@ public class Squadra
 		return squadraGolem.get(posTama);
 	}
 	
-	
+	public Tamagolem getTama(int pos) {
+		
+		return squadraGolem.get(pos);
+	}
 	
 	/**
 	 * Cerca il Tamagolem nella squadra in base al nome 

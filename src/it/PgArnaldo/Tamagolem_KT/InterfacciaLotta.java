@@ -1,22 +1,15 @@
 package it.PgArnaldo.Tamagolem_KT;
 
 import java.awt.BorderLayout;
-import java.awt.Button;
-import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
-
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.UIManager;
+
 
 
 public class InterfacciaLotta extends JFrame implements KeyListener{
@@ -27,7 +20,13 @@ public class InterfacciaLotta extends JFrame implements KeyListener{
 	private JPanel panelA;
 	private JLabel label1;
 	private JLabel label2;
+	private int numTama=6;
 	
+	private Squadra s1;
+	private Squadra s2;
+	
+	private IAssegnaPietre a;
+	private IGestioneSquad player;
 	
 
 	public InterfacciaLotta() {
@@ -39,25 +38,51 @@ public class InterfacciaLotta extends JFrame implements KeyListener{
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		Squadra s1=new Squadra(6);
-		Squadra s2=new Squadra(6);
 		
-		
-		introIniziale();
-		IGestioneSquad player = new IGestioneSquad("G1",s1);
-		
-		player.AggiungiElementi(panelA);
-		
-		player=new IGestioneSquad("G2",s2);
-		
-		player.AggiungiElementi(panelA);
-		
-		s1.stampaSquad();
-		System.out.println(" ");
-		s2.stampaSquad();
 	}
 	
 	
+	
+	//----------------------------------------------------------------------------
+	
+	public void vivoLotta(String p1, String p2) {
+		
+	    s1=new Squadra(numTama);
+		s2=new Squadra(numTama);
+		
+		
+		introIniziale();
+		
+		player = new IGestioneSquad(p1,s1);
+		
+		player.AggiungiElementi(panelA);
+		
+		player=new IGestioneSquad(p2,s2);
+		
+		player.AggiungiElementi(panelA);
+		
+		a=new IAssegnaPietre();
+			
+		a.drawInterface(panelA,s1.getTama(0).getNome()+"   Team1");
+		a.copyIntoTama(s1.getTama(0));
+		
+		
+	    a.resetRisorse();
+	    
+		
+		a.drawInterface(panelA,s2.getTama(0).getNome()+"   Team2");
+		a.copyIntoTama(s2.getTama(0));
+	
+	    s1.getTama(0).stampaPietre();
+	    s2.getTama(0).stampaPietre();
+	
+	
+	
+	}
+	
+	
+	
+	//-----------------------------------------------------------------------------------------------------
 	
 	private void introIniziale() {
 		
@@ -112,6 +137,7 @@ public class InterfacciaLotta extends JFrame implements KeyListener{
 	
 	
 	
+	//-------------------------------------------------------------------------------------------------------
 	
 	private void pausa(int tempo) {
 		
@@ -124,7 +150,9 @@ public class InterfacciaLotta extends JFrame implements KeyListener{
 	}
 	
 	
-
+	
+    //---------------------------------------------------------------------------------------------------------
+	
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub

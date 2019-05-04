@@ -30,6 +30,12 @@ public class Partita {
 		
 	}
 	
+	public void avvia() {
+		
+		InterfacciaLotta a=new InterfacciaLotta();
+		a.vivoLotta(nomeG1,nomeG2);
+	}
+	
 	
 	
 	

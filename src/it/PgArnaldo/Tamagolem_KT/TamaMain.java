@@ -1,15 +1,20 @@
 package it.PgArnaldo.Tamagolem_KT;
 
+import it.unibs.fp.mylib.InputDati;
+
 public class TamaMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 	
-		InterfacciaLotta a=new InterfacciaLotta();
-		
-		//Partita a= new Partita("d","d",9);
-        // Equilibrio a = new Equilibrio();
-        // a.stampaValori();
+        String p1=InputDati.leggiStringaNonVuota("Inserisci il nome del giocatore 1");
+        String p2=InputDati.leggiStringaNonVuota("Inserisci il nome del giocatore 2");
+        
+        
+		Partita play= new Partita(p1,p2,6);
+        play.avvia();
+        
+        
 	}
 
 }

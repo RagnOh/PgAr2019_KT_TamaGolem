@@ -1,14 +1,16 @@
 package it.PgArnaldo.Tamagolem_KT;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class PanelPietre implements ActionListener {
+public class PanelPietre extends JPanel implements ActionListener {
 
 	
 	private JButton aggiungiP;
@@ -16,6 +18,8 @@ public class PanelPietre implements ActionListener {
 	
 	public PanelPietre() {
 		// TODO Auto-generated constructor stub
+		
+		disegnaPanel();
 	}
 	
 	
@@ -28,7 +32,8 @@ public class PanelPietre implements ActionListener {
 		
 		
 		JPanel panel=new JPanel(b1);
-		
+		this.add(panel);
+		this.setBorder(BorderFactory.createLineBorder(Color.black));
 		JLabel label1=new JLabel("pietra");
 		
 		panel.add(label1,BorderLayout.WEST);
@@ -55,8 +60,8 @@ public class PanelPietre implements ActionListener {
 	}
 
 	
-	public void setClick(int a) {
+	public void resetClick() {
 		
-		click=a;
+		click=0;
 	}
 }
