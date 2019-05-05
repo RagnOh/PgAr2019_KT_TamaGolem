@@ -22,6 +22,7 @@ public class Partita {
 		nomeG2=_nomeG2;
 		numElementi=_numElementi;
 		numPietre=((numElementi+1)/3)+1;
+		System.out.println("numP="+ numPietre);
 		numGolem = ((numElementi-1)*(numElementi-2))/ (2*(((numElementi+1)/3) +1));		// formula per calcolare il numero di Golem
 		numPietreScorta=((2*numGolem*numPietre)/numElementi)*numElementi;
 		numPietreElem=((2*numGolem*numPietre)/numElementi);
