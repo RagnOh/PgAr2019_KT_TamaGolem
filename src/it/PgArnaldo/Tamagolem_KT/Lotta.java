@@ -6,57 +6,21 @@ public class Lotta {
 
 	private Squadra squadra1; //Squadra del giocatore 1
 	private Squadra squadra2; //Squadra del giocatore 2
+	
 	private Tamagolem tama1; //Tamagolem del giocatore 1
 	private Tamagolem tama2; //Tamagolem del giocatore 2
+	
+	private Equilibrio equilibrio1;
+	
 	private int numGolem;    //Numero di Tamagolem ammessi per squadra
 	private int numPietre;
 	
 	
-	public Lotta(int _numGolem,int _numPietre) {
+	public Lotta() {
 		
 		
-		numGolem=_numGolem;
-		numPietre=_numPietre;
-		
-		/*squadra1=inizTeam();
-		squadra1.stampaSquad();
-		System.out.println("     ");
-		squadra2=inizTeam();
-		squadra2.stampaSquad();
-		*/
+	
 	}
-	
-	/*
-	
-
-	
-
-
-	/**
-	 * Mette in campo un Tamagolem
-	 * @param nPlayer Il giocatore che evoca il Tamagolem
-	 * @return Ritorna se l' operazione è andata a buon fine
-	 */
-	public boolean evocaTama(int nPlayer) {
-		
-		switch(nPlayer) {
-		
-		case 1:
-			
-			
-			return true;
-		
-		case 2:
-			
-			
-			return true;
-			
-		default:
-			return false;
-		
-		}	
-	}
-	
 	
 	
 	

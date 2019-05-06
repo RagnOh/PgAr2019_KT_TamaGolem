@@ -28,6 +28,8 @@ public class InterfacciaLotta extends JFrame implements KeyListener{
 	private IAssegnaPietre a;
 	private IGestioneSquad player;
 	
+	private Lotta lotta1;
+	
 
 	public InterfacciaLotta() {
 		// TODO Auto-generated constructor stub
@@ -54,7 +56,6 @@ public class InterfacciaLotta extends JFrame implements KeyListener{
 		introIniziale();
 		
 		
-		
 		player = new IGestioneSquad(p1,s1);
 		
 		player.AggiungiElementi(panelA);
@@ -78,7 +79,8 @@ public class InterfacciaLotta extends JFrame implements KeyListener{
 	    s1.getTama(0).stampaPietre();
 	    s2.getTama(0).stampaPietre();
 	
-	
+	    lotta1=new Lotta();
+	    
 		IBattaglia m=new IBattaglia();
 		m.disegnaCampo(panelA,s1.getTama(0),s2.getTama(0));
 	
@@ -88,6 +90,9 @@ public class InterfacciaLotta extends JFrame implements KeyListener{
 	
 	//-----------------------------------------------------------------------------------------------------
 	
+	/**
+	 * Stampa delle scritte iniziali e permette di continuare una volta premuto un tasto della tastiera
+	 */
 	private void introIniziale() {
 		
 		
@@ -143,6 +148,10 @@ public class InterfacciaLotta extends JFrame implements KeyListener{
 	
 	//-------------------------------------------------------------------------------------------------------
 	
+	/**
+	 * Pausa temporale per le scritte
+	 * @param tempo Quanto far durare la pausa
+	 */
 	private void pausa(int tempo) {
 		
 		try {
@@ -179,5 +188,9 @@ public class InterfacciaLotta extends JFrame implements KeyListener{
 		
 	}
 
-	
+	public void gestioneLotta(Tamagolem tama1,Tamagolem tama2) {
+		
+		
+		
+	}
 }

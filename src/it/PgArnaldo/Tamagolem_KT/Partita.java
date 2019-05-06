@@ -27,7 +27,7 @@ public class Partita {
 		numPietreScorta=((2*numGolem*numPietre)/numElementi)*numElementi;
 		numPietreElem=((2*numGolem*numPietre)/numElementi);
 		
-		l1=new Lotta(numGolem,numPietre);
+		
 		
 	}
 	
