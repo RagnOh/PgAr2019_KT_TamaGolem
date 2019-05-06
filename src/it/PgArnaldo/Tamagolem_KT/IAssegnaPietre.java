@@ -15,6 +15,8 @@ public class IAssegnaPietre extends JPanel{
 	private ArrayList<PanelPietre> addPietre= new ArrayList<PanelPietre>(); //ArrayList per gestione grafica a caselle pietre da dare al tamagolem
 	private ArrayList<PanelPietreTama> pietreTama= new ArrayList<PanelPietreTama>(); //ArrayList per gestione grafica a caselle pietre possedute dal tamagolem
 	
+	private String [] nomeElemento= {"ERBA","FUOCO","ARIA","ACQUA","KT","ETERE"};
+	
 	private BorderLayout bordi;
 	private final static int NUMELEMENTI=6;
 	
@@ -98,7 +100,7 @@ public class IAssegnaPietre extends JPanel{
       private void inizPanelPietre() {
 		
 		for(int i=0;i<NUMELEMENTI;i++) {
-		addPietre.add(new PanelPietre());
+		addPietre.add(new PanelPietre(nomeElemento[i]));
 		}   
 	
     }
@@ -110,7 +112,7 @@ public class IAssegnaPietre extends JPanel{
 	private void inizPanelPietreTama() {
 		
 		for(int i=0;i<NUMELEMENTI;i++) {
-			pietreTama.add(new PanelPietreTama());
+			pietreTama.add(new PanelPietreTama(nomeElemento[i]));
 			}   
 	}
 	

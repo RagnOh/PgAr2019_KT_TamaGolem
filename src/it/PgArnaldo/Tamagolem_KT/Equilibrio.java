@@ -62,4 +62,9 @@ public class Equilibrio
 			System.out.print("\n");
 		}
 	}
+	
+	public int getValore(int elemento1,int elemento2) {
+		
+		return sistemaForze[elemento1][elemento2];
+	}
 }

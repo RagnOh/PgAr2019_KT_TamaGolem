@@ -16,9 +16,11 @@ public class PanelSquadraBatt extends JPanel  {
 	private JPanel panelTama;
 	private JPanel panelSfere;
 	
+	
+	
 	private BorderLayout composition;
 	
-	
+	private GraficaSaccaSfere sf1;
 	
 	//---------------------------------------------------------------------------
 	public PanelSquadraBatt() {
@@ -28,7 +30,7 @@ public class PanelSquadraBatt extends JPanel  {
 	
 	//---------------------------------------------------------------------------
 	
-	public void disegnaTeam(JPanel panelMain) {
+	public void disegnaTeam(JPanel panelMain ) {
 		
 		
 		JLabel l3=new JLabel("sfere");
@@ -49,9 +51,9 @@ public class PanelSquadraBatt extends JPanel  {
 		
 		
 		
-		disegnaVita();
+		
 		disegnaTama();
-		disegnaSfere();
+		
 		
 		
 		
@@ -62,12 +64,18 @@ public class PanelSquadraBatt extends JPanel  {
 	
 	//--------------------------------------------------------------------------
 	
-	public void disegnaVita() {
+	public void disegnaVita(int vitaTama) {
 		
-		GraficaVita boxVita=new GraficaVita(100);
+		if(vitaTama<=0) {
+			vitaTama=0;
+		}
+		
+		GraficaVita boxVita=new GraficaVita(vitaTama);
         panelVita.add(boxVita,BorderLayout.CENTER);
 		
 		panelVita.setVisible(true);
+		panelVita.validate();
+		panelVita.repaint();
 		
 	}
 	
@@ -84,16 +92,23 @@ public class PanelSquadraBatt extends JPanel  {
 	
 	//--------------------------------------------------------------------------
 	
-	public void disegnaSfere() {
+	public void disegnaSfere(int element1,int element2,int element3) {
 		
-		GraficaSaccaSfere sf1=new GraficaSaccaSfere();
+		 sf1=new GraficaSaccaSfere(element1,element2,element3);
+		//sf1.switchSfere();
 		
 		panelSfere.add(sf1);
 		
+		panelSfere.validate();
+		panelSfere.repaint();
 	}
 
 
 	//--------------------------------------------------------------------------
 	
+	public void Aggiorna() {
+		
+		sf1.switchSfere();
+	}
 	
 }

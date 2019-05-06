@@ -53,9 +53,8 @@ public class InterfacciaLotta extends JFrame implements KeyListener{
 		
 		introIniziale();
 		
-		IBattaglia m=new IBattaglia();
-		m.disegnaCampo(panelA);
-		/*
+		
+		
 		player = new IGestioneSquad(p1,s1);
 		
 		player.AggiungiElementi(panelA);
@@ -78,8 +77,10 @@ public class InterfacciaLotta extends JFrame implements KeyListener{
 	
 	    s1.getTama(0).stampaPietre();
 	    s2.getTama(0).stampaPietre();
-	*/
 	
+	
+		IBattaglia m=new IBattaglia();
+		m.disegnaCampo(panelA,s1.getTama(0),s2.getTama(0));
 	
 	}
 	

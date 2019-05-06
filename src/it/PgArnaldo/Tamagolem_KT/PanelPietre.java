@@ -15,9 +15,12 @@ public class PanelPietre extends JPanel implements ActionListener {
 	
 	private JButton aggiungiP;
 	private int click=0;
+	private String nomeElemento;
 	
-	public PanelPietre() {
+	public PanelPietre(String _nomeElemento) {
 		// TODO Auto-generated constructor stub
+		
+		nomeElemento=_nomeElemento;
 		
 		disegnaPanel();
 	}
@@ -34,7 +37,7 @@ public class PanelPietre extends JPanel implements ActionListener {
 		JPanel panel=new JPanel(b1);
 		this.add(panel);
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
-		JLabel label1=new JLabel("pietra");
+		JLabel label1=new JLabel(nomeElemento+" ");
 		
 		panel.add(label1,BorderLayout.WEST);
 		panel.add(aggiungiP,BorderLayout.CENTER);

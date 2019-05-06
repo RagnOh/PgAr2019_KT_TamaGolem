@@ -11,15 +11,22 @@ public class GraficaVita extends JPanel{
 	
 	   private static final int RECT_X = 20;
 	   private static final int RECT_Y = RECT_X;
+	   private static final int RECT2_X = 23;
+	   private static final int RECT2_Y = RECT2_X;
 	   private static final int RECT_WIDTH = 206;
 	   private static final int RECT_HEIGHT = 36;
+	   private static final int RECT2_HEIGHT = 30;
+	   
 	   
 	   private int lunghezzaVita;
 	   
 	   public GraficaVita(int _lunghezzaVita) {
 		// TODO Auto-generated constructor stub
+		  
+			
+			   lunghezzaVita=_lunghezzaVita;
 		   
-		   lunghezzaVita=_lunghezzaVita;
+		   
 	}
 
 	   @Override
@@ -30,7 +37,7 @@ public class GraficaVita extends JPanel{
 	      g.fillRoundRect(RECT_X, RECT_Y, RECT_WIDTH, RECT_HEIGHT,10,10);
 	     
 	      g.setColor(Color.GREEN);
-	      g.fillRoundRect(23, 23, lunghezzaVita, 30,10,10);
+	      g.fillRoundRect(RECT2_X, RECT2_Y, lunghezzaVita, RECT2_HEIGHT,10,10);
 	      
 	   }
 

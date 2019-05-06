@@ -14,7 +14,10 @@ public class PanelPietreTama extends JPanel{
 	private String nomeElement;
 	private JLabel label1;
 	
-	public PanelPietreTama(){
+	
+	public PanelPietreTama(String _nomeElemento){
+		
+		nomeElement=_nomeElemento;
 		
 		disegnaInterface();
 	}

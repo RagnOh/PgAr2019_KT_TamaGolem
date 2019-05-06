@@ -13,6 +13,11 @@ import javax.swing.JPanel;
 public class IGestioneSquad implements ActionListener{
 
 	private JButton avanti;
+	private JPanel panel3;
+	private JPanel panel4;
+	private JLabel label1;
+	private JLabel label2;
+	
 	private ArrayList<PanelScelta> scelte= new ArrayList<PanelScelta>();
 	private String [] nomi= { "Gaetano","b","Ciro","d","e","f","g","h","i","l"};
 	private BorderLayout bordi;
@@ -22,8 +27,15 @@ public class IGestioneSquad implements ActionListener{
 	private String nomeGiocatore;
 	private Squadra squad;
 	
+	private  int numTamaSquad=6;
+	
 	//---------------------------------------------------------------------------
 	
+	/**
+	 * Classe adibita all' inizializzazione delle squadre e alla selezione del nuvo tamagolem una volta morto il precedente
+	 * @param _nomeGiocatore Nome del giocatore
+	 * @param _squad Squadra del giocatore
+	 */
 	public IGestioneSquad(String _nomeGiocatore,Squadra _squad) {
 		// TODO Auto-generated constructor stub
 	
@@ -34,9 +46,13 @@ public class IGestioneSquad implements ActionListener{
 	
 	//-----------------------------------------------------------------------------------------------------
 	
+	/**
+	 * Disegna i vari blocchi a schermo riponendoli sul JPanel di riferimento
+	 * @param panelA JPanel di riferimento su cui inserire i componenti
+	 */
 	public void AggiungiElementi(JPanel panelA) {
 		
-		
+		numTamaSquad=6;
 		bordi=new BorderLayout();
 	    bordi2=new BorderLayout();
 		
@@ -48,8 +64,8 @@ public class IGestioneSquad implements ActionListener{
 		
 		panelA.setLayout(bordi);
 	
-		JPanel panel3=new JPanel(new GridLayout(5,2));
-		JPanel panel4=new JPanel(bordi2);
+		panel3=new JPanel(new GridLayout(5,2));
+		panel4=new JPanel(bordi2);
 		
 		
 		
@@ -59,13 +75,13 @@ public class IGestioneSquad implements ActionListener{
 		
 		
 		
-		JLabel label1 = new JLabel(nomeGiocatore);
-		JLabel label2 = new JLabel("dic");
+		label1 = new JLabel(nomeGiocatore);
+		label2 = new JLabel("dic");
 		
 		
 		
 		
-		inizArray();
+		inizArray(0);
 		
 		
 	    for(int i=0;i<scelte.size();i++) {
@@ -95,16 +111,32 @@ public class IGestioneSquad implements ActionListener{
 	
 	//--------------------------------------------------------------------------------
     
-	private void inizArray() {
+	/**
+	 * Inizializza l' array scelta creando le rispettive caselle per la scelta dei Tamagolem
+	 * @param select Inserire 0 se si deve inizializzare la squadra per la prima volta. Inserire 1 se si vuole cambiare il Tamagolem
+	 */
+	private void inizArray(int select) {
 		
+		if (select==0) {
 		for(int i=0;i<nomi.length;i++) {
 		scelte.add(new PanelScelta(nomi[i]));
 		}   
+		}
+		
+		else if(select==1) {
+			for(int i=0;i<squad.returnSize();i++) {
+				scelte.add(new PanelScelta(squad.getTama(i).getNome()));
+				}   
+		}
 	
     }
 	
+	
 	//--------------------------------------------------------------------------------
 	
+	/**
+	 * Controlla il numero di volte che una chekBox è stata selezionata e quindi il numero massimo di tamagolem selezionabili. Una volta raggiunto fa apparire il pulsante per continuare
+	 */
 	private void controlNumSquad(){
 		
 		do {
@@ -125,7 +157,7 @@ public class IGestioneSquad implements ActionListener{
 	    	
 	    }
 		
-		if (conteggio==6) {
+		if (conteggio==numTamaSquad) {
 			
 			avanti.setVisible(true);
 		}
@@ -137,6 +169,9 @@ public class IGestioneSquad implements ActionListener{
 
 	//-------------------------------------------------------------------------------------
 	
+	/**
+	 * Funzione per rilevare se il pulsante è stato premuto
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -145,9 +180,14 @@ public class IGestioneSquad implements ActionListener{
 		
 	}
 	
+	
 	//--------------------------------------------------------------------------------
 	
+	/**
+	 * Aggiunge il Tamagolem selezionata alla squadra
+	 */
 	public void aggiungiTama() {
+		
 		
 		for(int i=0;i<scelte.size();i++) {
 			
@@ -156,6 +196,72 @@ public class IGestioneSquad implements ActionListener{
 			}
 		}
 		
+		
+		
+		
 	}
 	
+	
+	//------------------------------------------------------------------------------------
+	
+	/**
+	 * Seleziona un altro tamagolem presente nella squadra
+	 * @param panelA JPanel su cui disegnare 
+	 * @return Ritorna il Tamagolem selezionato
+	 */
+	public Tamagolem evocaAltroTama(JPanel panelA) {
+		
+		Tamagolem t1=null;
+		numTamaSquad=1;
+		
+		bordi=new BorderLayout();
+	    bordi2=new BorderLayout();
+		
+		avanti = new JButton("Conferma");
+		avanti.setSize(80, 80);
+		
+		bordi.setHgap(70);
+		bordi2.setVgap(70);
+		
+		panelA.setLayout(bordi);
+	
+		panel3=new JPanel(new GridLayout(5,2));
+		panel4=new JPanel(bordi2);
+		
+		
+		
+		panelA.add(panel3,BorderLayout.CENTER);
+		panelA.add(panel4,BorderLayout.EAST);
+		
+		
+		
+		
+		label1 = new JLabel(nomeGiocatore);
+		label2 = new JLabel("dic");
+		
+		inizArray(1);
+		
+            for(int i=0;i<scelte.size();i++) {
+			
+			if(scelte.get(i).getIsSelected()==true) {
+				t1=squad.getTama(i);
+			}
+		}
+
+		return t1;
+	}
+	
+	//---------------------------------------------------------------------------------------------------------
+	
+	/**
+	 * Resetta le risorse del programma
+	 */
+	public void resetRis() {
+		
+		
+		 scelte.clear();
+		 clicked=0;
+		 conteggio=0;
+	
+	}
 }

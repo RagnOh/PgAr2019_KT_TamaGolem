@@ -6,7 +6,7 @@ public class Tamagolem
     
 	private int numPietre;			// identifica il numero massimo di pietre che può ingerire il golem
 	private ArrayList <Integer> pietre = new ArrayList<Integer>(); //Identifichiamo ciascun elemento con un numero
-	private int vita;
+	private int vita=200;
 	private int vitaMax;
 	private boolean isSulCampo = false;
 	private boolean isAlive = true;

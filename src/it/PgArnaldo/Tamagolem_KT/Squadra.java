@@ -125,4 +125,8 @@ public class Squadra
 	}
 	
 
+	public int returnSize() {
+		
+		return squadraGolem.size();
+	}
 }

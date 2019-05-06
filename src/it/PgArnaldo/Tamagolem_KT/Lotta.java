@@ -28,16 +28,7 @@ public class Lotta {
 	
 	/*
 	
-	private Squadra inizTeam() {
-		
-		Squadra squad=new Squadra(numGolem);
-		for(int i=0;i<numGolem;i++) {
-		String nome="c";
-		squad.addTama(new Tamagolem(nome,));
-		}
-		
-		return squad;
-	}*/
+
 	
 
 
@@ -52,12 +43,12 @@ public class Lotta {
 		
 		case 1:
 			
-			tama1=sceltaTama(squadra1);
+			
 			return true;
 		
 		case 2:
 			
-			tama2=sceltaTama(squadra2);
+			
 			return true;
 			
 		default:
@@ -67,17 +58,7 @@ public class Lotta {
 	}
 	
 	
-	/**
-	 * Sceglie il Tamagolem da evocare in base al nome
-	 * @param squad Inserire la squadra da cui scegliere il Tamagolem
-	 * @return Tamagolem da evocare scelto dalla squadra
-	 */
-	private Tamagolem sceltaTama(Squadra squad) {
-		
-		String nomeTama=InputDati.leggiStringaNonVuota("Inserisci il nome del Tamagolem da evocare:");
-		
-		return squad.getTama(nomeTama);
-	}
+	
 	
 	
 	/**
