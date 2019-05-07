@@ -4,13 +4,15 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class IGestioneSquad implements ActionListener{
+public class IGestioneSquad implements ActionListener,KeyListener{
 
 	private JButton avanti;
 	private JPanel panel3;
@@ -28,6 +30,7 @@ public class IGestioneSquad implements ActionListener{
 	private Squadra squad;
 	
 	private  int numTamaSquad=6;
+	private int exit=0;
 	
 	//---------------------------------------------------------------------------
 	
@@ -80,7 +83,7 @@ public class IGestioneSquad implements ActionListener{
 		
 		
 		
-		
+		 
 		inizArray(0);
 		
 		
@@ -140,10 +143,14 @@ public class IGestioneSquad implements ActionListener{
 	 */
 	private void controlNumSquad(){
 		
+		vivoL:
 		do {
+			if(exit==1)break vivoL;
 		for(int i=0;i<scelte.size();i++) {
 			
-	    	if(scelte.get(i).getIsSelected()==true  && scelte.get(i).giaP()==false) {
+			if(exit==1)break vivoL;
+	    	
+			if(scelte.get(i).getIsSelected()==true  && scelte.get(i).giaP()==false) {
 	    		
 	    		conteggio++;
 	    		scelte.get(i).setgiaP(true);
@@ -189,8 +196,10 @@ public class IGestioneSquad implements ActionListener{
 	 */
 	public void aggiungiTama() {
 		
-		
+		vivo1:
 		for(int i=0;i<scelte.size();i++) {
+			
+			if(exit==1)break vivo1;
 			
 			if(scelte.get(i).getIsSelected()==true) {
 				squad.addTama(scelte.get(i).getTamaName());
@@ -242,9 +251,12 @@ public class IGestioneSquad implements ActionListener{
 		
 		inizArray(1);
 		
+		vivo2:
 		for(int i=0;i<scelte.size();i++) {
 			
-	    	panel3.add(scelte.get(i));
+			if(exit==1)break vivo2;
+	    	
+			panel3.add(scelte.get(i));
 	    }
 		
 		panel4.add(label1,BorderLayout.NORTH);
@@ -262,8 +274,11 @@ public class IGestioneSquad implements ActionListener{
 		
 		controlNumSquad();
 		
+		vivo3:
             for(int i=0;i<scelte.size();i++) {
-			
+            	
+            	if(exit==1)break vivo3;
+            	
 			if(scelte.get(i).getIsSelected()==true) {
 				t1=i;
 			}
@@ -286,5 +301,23 @@ public class IGestioneSquad implements ActionListener{
 		 clicked=0;
 		 conteggio=0;
 	
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getKeyCode()==65)exit=1;
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
