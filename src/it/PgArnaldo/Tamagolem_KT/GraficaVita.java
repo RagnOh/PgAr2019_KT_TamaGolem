@@ -46,4 +46,5 @@ public class GraficaVita extends JPanel{
 	      // so that our GUI is big enough
 	      return new Dimension(RECT_WIDTH + 2 * RECT_X, RECT_HEIGHT + 2 * RECT_Y);
 	   }
+	  
 }

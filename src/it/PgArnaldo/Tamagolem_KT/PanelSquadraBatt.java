@@ -16,6 +16,7 @@ public class PanelSquadraBatt extends JPanel  {
 	private JPanel panelTama;
 	private JPanel panelSfere;
 	
+	private GraficaVita boxVita;
 	
 	
 	private BorderLayout composition;
@@ -70,12 +71,12 @@ public class PanelSquadraBatt extends JPanel  {
 			vitaTama=0;
 		}
 		
-		GraficaVita boxVita=new GraficaVita(vitaTama);
+		boxVita=new GraficaVita(vitaTama);
         panelVita.add(boxVita,BorderLayout.CENTER);
 		
 		panelVita.setVisible(true);
 		panelVita.validate();
-		panelVita.repaint();
+		//panelVita.repaint();
 		
 	}
 	
@@ -109,6 +110,8 @@ public class PanelSquadraBatt extends JPanel  {
 	public void Aggiorna() {
 		
 		sf1.switchSfere();
+		panelSfere.validate();
+		panelSfere.repaint();
 	}
 	
 }

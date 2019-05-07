@@ -45,17 +45,10 @@ public class Squadra
 	 * Rimuove un Tamagolem dalla squadra 
 	 * @param nomeTama Il nome del Tamagolem da rimuovere dalla squadra
 	 */
-	public void removeTama(String nomeTama ) {
+	public void removeTama(int posTama ) {
 		
 		
-        int posTama=searchTama(nomeTama);
-		
-		while(posTama==800) {
-			
-			nomeTama=InputDati.leggiStringaNonVuota("Tamagolem non trovato, inserisci un nome valido");
-			posTama=searchTama(nomeTama);
-			
-		}
+       
 		
 		squadraGolem.remove(posTama);
 		
@@ -128,5 +121,10 @@ public class Squadra
 	public int returnSize() {
 		
 		return squadraGolem.size();
+	}
+	
+	public boolean retEmpty() {
+		
+		return squadraGolem.isEmpty();
 	}
 }

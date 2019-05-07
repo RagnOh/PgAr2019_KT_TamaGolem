@@ -33,8 +33,12 @@ public class Partita {
 	
 	public void avvia() {
 		
+		do {
 		InterfacciaLotta a=new InterfacciaLotta();
 		a.vivoLotta(nomeG1,nomeG2);
+		a.removeAll();
+		}while(true);
+		
 	}
 	
 	

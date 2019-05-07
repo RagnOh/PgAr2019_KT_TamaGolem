@@ -9,6 +9,28 @@ public class Equilibrio
 
 	public Equilibrio ()		// serve per riempire la matrice equilibrio con i valori di efficienza dei diversi elementi
 	{
+		
+
+
+	}	// fine COSTRUTTORE
+	public void stampaValori ()
+	{
+		for (int i = 0; i < NUM_ELEMENTI; i++)
+		{
+			for (int j = 0; j < NUM_ELEMENTI; j++)
+			{
+				System.out.print(sistemaForze[i][j]+"  ");
+			}
+			System.out.print("\n");
+		}
+	}
+	
+	public int getValore(int elemento1,int elemento2) {
+		
+		return sistemaForze[elemento1][elemento2];
+	}
+	
+	public void creaMatrice() {
 		int tmp = 0;
 		int danno = 0;
 		int sommaVal = 0;
@@ -48,23 +70,6 @@ public class Equilibrio
 			}	// fine FOR colonne
 		} // fine FOR righe
 
-
-
-	}	// fine COSTRUTTORE
-	public void stampaValori ()
-	{
-		for (int i = 0; i < NUM_ELEMENTI; i++)
-		{
-			for (int j = 0; j < NUM_ELEMENTI; j++)
-			{
-				System.out.print(sistemaForze[i][j]+"  ");
-			}
-			System.out.print("\n");
-		}
-	}
-	
-	public int getValore(int elemento1,int elemento2) {
-		
-		return sistemaForze[elemento1][elemento2];
+		stampaValori();
 	}
 }

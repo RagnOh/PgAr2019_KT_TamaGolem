@@ -52,7 +52,7 @@ public class IGestioneSquad implements ActionListener{
 	 */
 	public void AggiungiElementi(JPanel panelA) {
 		
-		numTamaSquad=6;
+		
 		bordi=new BorderLayout();
 	    bordi2=new BorderLayout();
 		
@@ -97,6 +97,7 @@ public class IGestioneSquad implements ActionListener{
 		
 		panel3.setVisible(true);
 		panel4.setVisible(true);
+		
 		panelA.validate();
 		panelA.repaint();
 		
@@ -209,9 +210,9 @@ public class IGestioneSquad implements ActionListener{
 	 * @param panelA JPanel su cui disegnare 
 	 * @return Ritorna il Tamagolem selezionato
 	 */
-	public Tamagolem evocaAltroTama(JPanel panelA) {
+	public int evocaAltroTama(JPanel panelA) {
 		
-		Tamagolem t1=null;
+		int t1=0;
 		numTamaSquad=1;
 		
 		bordi=new BorderLayout();
@@ -241,13 +242,35 @@ public class IGestioneSquad implements ActionListener{
 		
 		inizArray(1);
 		
+		for(int i=0;i<scelte.size();i++) {
+			
+	    	panel3.add(scelte.get(i));
+	    }
+		
+		panel4.add(label1,BorderLayout.NORTH);
+        panel4.add(avanti,BorderLayout.SOUTH);
+       
+        avanti.setVisible(false);
+		
+		panel3.setVisible(true);
+		panel4.setVisible(true);
+		
+		panelA.validate();
+		panelA.repaint();
+		
+        avanti.addActionListener(this);
+		
+		controlNumSquad();
+		
             for(int i=0;i<scelte.size();i++) {
 			
 			if(scelte.get(i).getIsSelected()==true) {
-				t1=squad.getTama(i);
+				t1=i;
 			}
 		}
 
+            panelA.removeAll();
+            
 		return t1;
 	}
 	

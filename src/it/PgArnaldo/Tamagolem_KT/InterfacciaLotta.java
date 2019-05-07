@@ -15,20 +15,29 @@ import javax.swing.JPanel;
 public class InterfacciaLotta extends JFrame implements KeyListener{
 
 	
-	private int clicked=0;
 	private JPanel panel1;
 	private JPanel panelA;
 	private JLabel label1;
 	private JLabel label2;
-	private int numTama=6;
+	
 	
 	private Squadra s1;
 	private Squadra s2;
 	
 	private IAssegnaPietre a;
-	private IGestioneSquad player;
+	private IGestioneSquad player1;
+	private IGestioneSquad player2;
 	
-	private Lotta lotta1;
+	
+	private int numTama=6;
+	private int clicked=0;
+	private int posTama1=0;
+	private int posTama2=0;
+	
+	private int exit=0;
+	
+	
+	
 	
 
 	public InterfacciaLotta() {
@@ -56,34 +65,81 @@ public class InterfacciaLotta extends JFrame implements KeyListener{
 		introIniziale();
 		
 		
-		player = new IGestioneSquad(p1,s1);
+		player1 = new IGestioneSquad(p1,s1);
 		
-		player.AggiungiElementi(panelA);
+		player1.AggiungiElementi(panelA);
 		
-		player=new IGestioneSquad(p2,s2);
+		player2=new IGestioneSquad(p2,s2);
 		
-		player.AggiungiElementi(panelA);
+		panelA.removeAll();
+		
+		player2.AggiungiElementi(panelA);
 		
 		a=new IAssegnaPietre();
 			
-		a.drawInterface(panelA,s1.getTama(0).getNome()+"   Team1");
-		a.copyIntoTama(s1.getTama(0));
+		a.drawInterface(panelA,s1.getTama(posTama1).getNome()+"   Team1");
+		a.copyIntoTama(s1.getTama(posTama1));
 		
 		
 	    a.resetRisorse();
 	    
 		
-		a.drawInterface(panelA,s2.getTama(0).getNome()+"   Team2");
-		a.copyIntoTama(s2.getTama(0));
+		a.drawInterface(panelA,s2.getTama(posTama2).getNome()+"   Team2");
+		a.copyIntoTama(s2.getTama(posTama2));
 	
-	    s1.getTama(0).stampaPietre();
-	    s2.getTama(0).stampaPietre();
+		a.resetRisorse();
+		
+	    s1.getTama(posTama1).stampaPietre();
+	    s2.getTama(posTama2).stampaPietre();
 	
-	    lotta1=new Lotta();
+	
 	    
 		IBattaglia m=new IBattaglia();
-		m.disegnaCampo(panelA,s1.getTama(0),s2.getTama(0));
+		
+		vivoLotta:
+		do {
+			
+			if(exit==1)break vivoLotta;
+			
+		if(m.disegnaCampo(panelA,s1.getTama(posTama1),s2.getTama(posTama2))==1) {
+			
+			System.out.println("tama1 morto");
+			s1.removeTama(posTama1);
+			
+			gestioneCambio(player1, s1, posTama1);
+			
+			panelA.validate();
+			panelA.repaint();
+			
+		}
+		
+		else {
+			
+			System.out.println("tama2 morto");
+			s2.removeTama(posTama2);
+			
+			gestioneCambio(player2, s2, posTama2);
+			
+			panelA.validate();
+			panelA.repaint();
+		}
+		
+		}while(s1.retEmpty()==false && s2.retEmpty()==false);
 	
+		
+		panelA.removeAll();
+		
+		if(s1.retEmpty()==true) {
+		label1 = new JLabel("Giocatore 2 Vince");
+		}
+		
+		else label1 = new JLabel("Giocatore 1 Vince");
+		
+		panelA.add(label1,BorderLayout.CENTER);
+		
+		panelA.validate();
+		panelA.repaint();
+		
 	}
 	
 	
@@ -178,6 +234,8 @@ public class InterfacciaLotta extends JFrame implements KeyListener{
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
 		clicked=1;
+		if(e.getKeyCode()==65)exit=1;
+		
 	}
 
 
@@ -188,9 +246,19 @@ public class InterfacciaLotta extends JFrame implements KeyListener{
 		
 	}
 
-	public void gestioneLotta(Tamagolem tama1,Tamagolem tama2) {
+	public void gestioneCambio(IGestioneSquad player,Squadra squad,int posizioneTama) {
+		
+		player.resetRis();
+		
+		panelA.removeAll();
+		
+		posizioneTama=player.evocaAltroTama(panelA);
+		
+		a.drawInterface(panelA,squad.getTama(posizioneTama).getNome()+"   Team1");
+		a.copyIntoTama(squad.getTama(posizioneTama));
 		
 		
+	    a.resetRisorse();
 		
 	}
 }

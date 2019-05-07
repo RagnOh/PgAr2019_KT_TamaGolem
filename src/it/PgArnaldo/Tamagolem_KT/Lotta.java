@@ -1,8 +1,10 @@
 package it.PgArnaldo.Tamagolem_KT;
 
+import javax.swing.JPanel;
+
 import it.unibs.fp.mylib.InputDati;//Libreria per l'input dati da tastiera
 
-public class Lotta {
+public class Lotta extends JPanel{
 
 	private Squadra squadra1; //Squadra del giocatore 1
 	private Squadra squadra2; //Squadra del giocatore 2
@@ -12,13 +14,20 @@ public class Lotta {
 	
 	private Equilibrio equilibrio1;
 	
+	private PanelSquadraBatt team1;
+	private PanelSquadraBatt team2;
+	
 	private int numGolem;    //Numero di Tamagolem ammessi per squadra
 	private int numPietre;
+	
+	int[] sfereTama1 = new int[3];
+    int[] sfereTama2 = new int[3];	
 	
 	
 	public Lotta() {
 		
-		
+		equilibrio1=new Equilibrio();
+		equilibrio1.creaMatrice();
 	
 	}
 	
@@ -32,12 +41,18 @@ public class Lotta {
 	 */
 	private void applicaDanno(Tamagolem tama,int danno) {
 		
+		danno = danno*2;
+		
 		int vita=tama.getVita();
 		
+		if(danno>0) {
 		vita=vita-danno;
+		}
+		else vita=vita-((-1)*danno);
 		
 		if(vita<=0) {
 			tama.setIsAlive(false);
+			tama.setVita(0);
 		}
 		else {
 			tama.setVita(vita);
@@ -49,54 +64,138 @@ public class Lotta {
 	/**
 	 * Il centro della lotta
 	 */
-	public void lanciaSfere() {
+	public void lanciaSfere(Tamagolem tama1,Tamagolem tama2,JPanel pSquadra1,JPanel pSquadra2,JPanel panelA) {
 		
-		int dSfera1=0;
-		int dSfera2=0;
-		int sfera1=0;
-		int sfera2=0;
-		int morti1=0;
-		int morti2=0;
+		int i=0;
+		
+		team1=new PanelSquadraBatt();
+		team2=new PanelSquadraBatt();
+		
+		team1.disegnaTeam(pSquadra1);
+		team1.disegnaVita(tama1.getVita());
+		System.out.println("vitaTama1: "+tama1.getVita());
+		passaSfere(tama1,1);
+		
+		team2.disegnaTeam(pSquadra2);
+		team2.disegnaVita(tama2.getVita());
+		System.out.println("vitaTama2: "+tama2.getVita());
+		passaSfere(tama2,2);
+		
+		panelA.validate();
+		panelA.repaint();
+		
 		
 		do {
-		first:
-		for (int i=0;i<numPietre;i++) {
 			
-			sfera1=tama1.getPietra(i);
-			sfera2=tama2.getPietra(i);
-			
-			if(dSfera1>dSfera2) {
-				applicaDanno(tama2,2);//Inserire il danno da tabella elementi
+			if(equilibrio1.getValore(sfereTama1[i], sfereTama2[i])>0) {
 				
-				if(tama2.getIsAlive()==false) {
-					morti2++;
-					break first;
-				}
-			
+				applicaDanno(tama2, equilibrio1.getValore(sfereTama1[i], sfereTama2[i]));
+				System.out.println("tam2:"+tama2.getVita());
+				team2.disegnaVita(tama2.getVita());
 			}
-			
 			else {
-				applicaDanno(tama1,3);//Inserire il danno da tabella elementi
 				
-				if(tama1.getIsAlive()==false) {
-					
-					morti1++;
-					break first;
-				}
+				applicaDanno(tama1, equilibrio1.getValore(sfereTama1[i], sfereTama2[i]));
+				team1.disegnaVita(tama1.getVita());
+				System.out.println("tam1:"+ tama1.getVita());
 			}
-		}
+			
+			
+			team1.Aggiorna();
+			team1.disegnaVita(tama1.getVita());
+			
+			team1.disegnaVita(tama1.getVita());
+			team2.Aggiorna();
+			
+			
+			
+			pausa1(600);
+			
+			if(i<2) {
+				i++;
+			}
+			
+			else i=0;
+			
+		}while(tama1.getIsAlive()==true && tama2.getIsAlive()==true);
 		
+		team2.disegnaVita(tama2.getVita());
 		
-	}while(morti1!=numGolem && morti2!=numGolem);
+		team1.disegnaVita(tama1.getVita());
 		
-		
-		if(morti1==numGolem) {
-			System.out.println("Il giocatore 2 ha vinto la partita!");
-		}
-		else System.out.println("Il giocatore 1 ha vinto la partita!");
+		panelA.validate();
+		panelA.repaint();
 	}
 	
 	
 	
+public void passaSfere(Tamagolem tama,int squadra) {
+		
+		int elemento1=800;
+		int elemento2=800;
+		int elemento3=800;
+		
+		
+		for(int i=0;i<6;i++) {
+			
+			switch(tama.getPietra(i)) {
+			    
+			case 1:
+				
+				if(elemento2==800)elemento2=i;
+				else if(elemento1==800)elemento1=i;
+				else if(elemento3==800)elemento3=i;
+				break;
+				
+				
+			case 2:
+				elemento1=i;
+				elemento3=i;
+				break;
+				
+			case 3:
+				elemento2=i;
+				elemento1=i;
+				elemento3=i;
+				break;
+				
+			default:
+			break;
+			
+			
+			}
+		}
+		
+		if(squadra==1) {
+			
+			team1.disegnaSfere(elemento1, elemento2, elemento3);
+			
+			sfereTama1[0]=elemento1;
+			sfereTama1[1]=elemento2;
+			sfereTama1[2]=elemento3;
+		}
+		
+		else {
+			
+			team2.disegnaSfere(elemento1, elemento2, elemento3);
+			
+			sfereTama2[0]=elemento1;
+			sfereTama2[1]=elemento2;
+			sfereTama2[2]=elemento3;
+		}
+		
+	}
+	
+
+
+private void pausa1(int tempo) {
+	
+	try {
+		Thread.sleep(tempo);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+}
 	
 }

@@ -20,6 +20,8 @@ public class IBattaglia extends JPanel {
 	private PanelSquadraBatt team1;
 	private PanelSquadraBatt team2;
 	
+	private Lotta lotta1;
+	
 	//---------------------------------------------------------------------------------------------
 	public IBattaglia() {
 		// TODO Auto-generated constructor stub
@@ -29,8 +31,9 @@ public class IBattaglia extends JPanel {
 	
 	
 	//---------------------------------------------------------------------------------------------
-	public void disegnaCampo(JPanel panelA,Tamagolem tama1,Tamagolem tama2) {
+	public int disegnaCampo(JPanel panelA,Tamagolem tama1,Tamagolem tama2) {
 		
+		lotta1=new Lotta();
 		
 		borderOut=new BorderLayout();
 		
@@ -40,7 +43,6 @@ public class IBattaglia extends JPanel {
 		panelT2=new JPanel();
 		panelScontro=new JPanel();
 		
-		//panelT1.setPreferredSize(new Dimension(200,300));
 		
 		panelA.add(panelScontro,borderOut.CENTER);
 		panelA.add(panelT1,borderOut.NORTH);
@@ -49,21 +51,18 @@ public class IBattaglia extends JPanel {
 		panelT1.setBorder(BorderFactory.createLineBorder(Color.black));
 		panelT2.setBorder(BorderFactory.createLineBorder(Color.black));
         
-		team1=new PanelSquadraBatt();
-		team2=new PanelSquadraBatt();
+		panelA.validate();
+		panelA.repaint();
 		
-		team1.disegnaTeam(panelT1);
-		team1.disegnaVita(tama1.getVita());
-		passaSfere(tama1,1);
 		
-		team2.disegnaTeam(panelT2);
-		team2.disegnaVita(tama2.getVita());
-		passaSfere(tama2,2);
-		
+		lotta1.lanciaSfere(tama1, tama2, panelT1, panelT2,panelA);
 		
 		panelA.validate();
 		panelA.repaint();
 		
+        if(tama1.getIsAlive()==false)return 1;
+		
+		else return 0;
 		
 	}
 	
@@ -71,50 +70,5 @@ public class IBattaglia extends JPanel {
 	
 	//--------------------------------------------------------------------------------------------
      
-	public void passaSfere(Tamagolem tama,int squadra) {
-		
-		int elemento1=800;
-		int elemento2=800;
-		int elemento3=800;
-		
-		
-		for(int i=0;i<6;i++) {
-			
-			switch(tama.getPietra(i)) {
-			    
-			case 1:
-				
-				if(elemento2==800)elemento2=i;
-				else if(elemento1==800)elemento1=i;
-				else if(elemento3==800)elemento3=i;
-				break;
-				
-				
-			case 2:
-				elemento1=i;
-				elemento3=i;
-				break;
-				
-			case 3:
-				elemento2=i;
-				elemento1=i;
-				elemento3=i;
-				break;
-				
-			default:
-			break;
-			
-			
-			}
-		}
-		
-		if(squadra==1) {
-			team1.disegnaSfere(elemento1, elemento2, elemento3);
-		}
-		
-		else {
-			team2.disegnaSfere(elemento1, elemento2, elemento3);
-		}
-		
-	}
+	
 }
