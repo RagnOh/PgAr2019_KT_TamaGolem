@@ -12,7 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class IGestioneSquad implements ActionListener,KeyListener{
+public class IGestioneSquad implements ActionListener{
 
 	private JButton avanti;
 	private JPanel panel3;
@@ -305,21 +305,5 @@ public class IGestioneSquad implements ActionListener,KeyListener{
 	
 	}
 
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		if(e.getKeyCode()==65)exit=1;
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }

@@ -30,7 +30,7 @@ public class IBattaglia extends JPanel {
 	 */
 	public IBattaglia() {
 		// TODO Auto-generated constructor stub
-		
+		lotta1=new Lotta();
 	}
 	
 	
@@ -46,7 +46,7 @@ public class IBattaglia extends JPanel {
 	 */
 	public int disegnaCampo(JPanel panelA,Tamagolem tama1,Tamagolem tama2) {
 		
-		lotta1=new Lotta();
+		
 		
 		borderOut=new BorderLayout();
 		

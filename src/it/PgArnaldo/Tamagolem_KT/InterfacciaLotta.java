@@ -40,7 +40,7 @@ public class InterfacciaLotta extends JFrame implements KeyListener{
 	//---------------------------------------------------------------------
 	
     /**
-     *Disegna l' interfaccia di inizio programma 
+     *Disegna l' interfaccia di inizio programma e gestisce l' andamento del programma
      */
 	public InterfacciaLotta() {
 		// TODO Auto-generated constructor stub
@@ -106,12 +106,14 @@ public class InterfacciaLotta extends JFrame implements KeyListener{
 		vivoLotta:
 		do {
 			
-			if(exit==1)break vivoLotta;
+			
 			
 		if(m.disegnaCampo(panelA,s1.getTama(posTama1),s2.getTama(posTama2))==1) {
 			
 			System.out.println("tama1 morto");
 			s1.removeTama(posTama1);
+			
+			if(s1.retEmpty()==true)break vivoLotta;
 			
 			gestioneCambio(player1, s1, posTama1,1);
 			
@@ -124,6 +126,8 @@ public class InterfacciaLotta extends JFrame implements KeyListener{
 			
 			System.out.println("tama2 morto");
 			s2.removeTama(posTama2);
+			
+			if(s2.retEmpty()==true)break vivoLotta;
 			
 			gestioneCambio(player2, s2, posTama2,2);
 			
