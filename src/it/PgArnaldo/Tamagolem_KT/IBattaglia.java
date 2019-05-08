@@ -22,7 +22,12 @@ public class IBattaglia extends JPanel {
 	
 	private Lotta lotta1;
 	
+	
 	//---------------------------------------------------------------------------------------------
+
+	/**
+	 * Gestisce il layout della battaglia ed inizializza la lotta
+	 */
 	public IBattaglia() {
 		// TODO Auto-generated constructor stub
 		
@@ -31,6 +36,14 @@ public class IBattaglia extends JPanel {
 	
 	
 	//---------------------------------------------------------------------------------------------
+	
+	/**
+	 * Disegna il layout del campo di battaglia
+	 * @param panelA Box su cui disegnare il campo di battaglia
+	 * @param tama1 Tamagolem squadra 1
+	 * @param tama2 Tamagolem squadra 2
+	 * @return 1 se il primo tamagolem muore 0 se muore il secondo
+	 */
 	public int disegnaCampo(JPanel panelA,Tamagolem tama1,Tamagolem tama2) {
 		
 		lotta1=new Lotta();

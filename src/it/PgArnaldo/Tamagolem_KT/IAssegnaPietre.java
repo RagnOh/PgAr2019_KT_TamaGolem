@@ -31,7 +31,9 @@ public class IAssegnaPietre extends JPanel{
 	//----------------------------------------------------
 	
 	
-	
+	/**
+	 * Gestisce l' assegnazione delle pietre per ciascun Tamagolem
+	 */
 	public IAssegnaPietre() {
 		// TODO Auto-generated constructor stub
 	}
@@ -39,6 +41,11 @@ public class IAssegnaPietre extends JPanel{
 	
 	//------------------------------------------------------------
 	
+	/**
+	 * Disegna l' interfaccia per l' assegnazione delle pietre
+	 * @param panelA box all' interno del quale disegnare l' interfaccia
+	 * @param nameTama nome del tamagolem + squadra
+	 */
 	public void drawInterface(JPanel panelA,String nameTama) {
 		
 
@@ -97,6 +104,9 @@ public class IAssegnaPietre extends JPanel{
 	
 	//--------------------------------------------------------------------------
 	
+	/**
+	 * Disegna i box con i pulsanti per assegnare le pietre
+	 */
       private void inizPanelPietre() {
 		
 		for(int i=0;i<NUMELEMENTI;i++) {
@@ -109,6 +119,9 @@ public class IAssegnaPietre extends JPanel{
       
 	//-------------------------------------------------------------------------------
 	
+    /**
+     * Disegna i box con i riferimenti alle pietre possedute dal tamagolem 
+     */
 	private void inizPanelPietreTama() {
 		
 		for(int i=0;i<NUMELEMENTI;i++) {
@@ -120,6 +133,9 @@ public class IAssegnaPietre extends JPanel{
 	
 	//--------------------------------------------------------------------------------
 	
+	/**
+	 * Controlla quali pulsanti sono stati premuti ed aggiunge il conto alle pietre del tamagolem
+	 */
 	private void controlloPulsanti() {
 		
 		first:
@@ -152,6 +168,9 @@ public class IAssegnaPietre extends JPanel{
 	
 	//-----------------------------------------------------------------------------------
 	
+	/**
+	 * Aggiorna il conto delle sfere
+	 */
 	private void refreshConto() {
 		
 		 for(int i=0;i<pietreTama.size();i++) {
@@ -165,6 +184,10 @@ public class IAssegnaPietre extends JPanel{
 	
 	//-------------------------------------------------------------------------------------
 	
+	/**
+	 * Copia le pietre nell' array pietre del tamagolem
+	 * @param tama Tamagolem in cui copiare le pietre
+	 */
 	public void copyIntoTama(Tamagolem tama) {
 		
 		for(int i=0;i<NUMELEMENTI;i++) {
@@ -175,6 +198,12 @@ public class IAssegnaPietre extends JPanel{
 		
 	}
 	
+	
+	//---------------------------------------------------------------------------
+	
+	/**
+	 * Resetta le risorse della classe in modo da poterla riutilizzare
+	 */
 	public void resetRisorse() {
 		
 

@@ -12,6 +12,13 @@ public class Tamagolem
 	private boolean isAlive = true;
 	private String nome;
 
+	
+	//----------------------------------------------------------------
+	
+	/**
+	 * Gestisce ciascun Tamagolem
+	 * @param _nome nome del Tamagolem
+	 */
 	public Tamagolem(String _nome)	//COSTRUTTORE -> si deve dare: numPietre, vitaMax ,lanciatore
 	{
 
@@ -19,11 +26,15 @@ public class Tamagolem
 	}
 
 	
+	//---------------------------------------------------------------
+	
 	public void setVita (int valore)
 	{
 		vita = valore;
 	}
 
+	
+	//----------------------------------------------------------------
 	
 	public void setSulCampo (boolean valore)
 	{
@@ -31,11 +42,15 @@ public class Tamagolem
 	}
 	
 	
+	//---------------------------------------------------------------
+	
 	public void setIsAlive (boolean valore)
 	{
 		isAlive = valore;
 	}
 
+	
+	//--------------------------------------------------------------
 	
 	public boolean getIsAlive ()
 	{
@@ -43,33 +58,47 @@ public class Tamagolem
 	}
 	
 	
+	//--------------------------------------------------------------
+	
 	public boolean getSulCampo ()
 	{
 		return isSulCampo;
 	}
 	
 	
+	//--------------------------------------------------------------
+	
 	public int getVita ()
 	{
 		return vita;
 	}
 	
+	//-------------------------------------------------------------
 	
 	public String getNome() {
 		
 		return nome;
 	}
 	
+	
+	//------------------------------------------------------------
+	
 	public int getPietra(int indice) {
 		
 		return pietre.get(indice);
 	}
+	
+	
+	//------------------------------------------------------------
 	
 	public void setPietra(int pos,int num) {
 		
 		pietre.add(pos, num);
 		
 	}
+	
+	
+	//-----------------------------------------------------------
 	
 	public void stampaPietre() {
 		

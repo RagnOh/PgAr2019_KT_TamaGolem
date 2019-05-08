@@ -32,6 +32,7 @@ public class IGestioneSquad implements ActionListener,KeyListener{
 	private  int numTamaSquad=6;
 	private int exit=0;
 	
+	
 	//---------------------------------------------------------------------------
 	
 	/**
@@ -288,6 +289,7 @@ public class IGestioneSquad implements ActionListener,KeyListener{
             
 		return t1;
 	}
+	
 	
 	//---------------------------------------------------------------------------------------------------------
 	

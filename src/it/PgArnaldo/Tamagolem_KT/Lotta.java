@@ -24,6 +24,11 @@ public class Lotta extends JPanel{
     int[] sfereTama2 = new int[3];	
 	
 	
+    //--------------------------------------------------------------------
+    
+    /**
+     * Gestisce la meccanica di lotta
+     */
 	public Lotta() {
 		
 		equilibrio1=new Equilibrio();
@@ -128,8 +133,14 @@ public class Lotta extends JPanel{
 	}
 	
 	
+	//--------------------------------------------------------------------
 	
-public void passaSfere(Tamagolem tama,int squadra) {
+	/**
+	 *Passa le sfere alla classe per la grafica e le inserisce in un array 
+	 * @param tama Tamagolem selezionato
+	 * @param squadra 1 squadra1 2 squadra2
+	 */
+     public void passaSfere(Tamagolem tama,int squadra) {
 		
 		int elemento1=800;
 		int elemento2=800;
@@ -187,8 +198,13 @@ public void passaSfere(Tamagolem tama,int squadra) {
 	}
 	
 
-
-private void pausa1(int tempo) {
+  //---------------------------------------------------------------------------
+     
+     /**
+      * Pausa temporale
+      * @param tempo la durata della pausa
+      */
+  private void pausa1(int tempo) {
 	
 	try {
 		Thread.sleep(tempo);

@@ -15,6 +15,12 @@ public class PanelPietreTama extends JPanel{
 	private JLabel label1;
 	
 	
+	//-----------------------------------------------------------------------
+	
+	/**
+	 * Disegna il box per la viusalizzazione delle pietre del tamagolem 
+	 * @param _nomeElemento nome dell' elemento
+	 */
 	public PanelPietreTama(String _nomeElemento){
 		
 		nomeElement=_nomeElemento;
@@ -23,6 +29,11 @@ public class PanelPietreTama extends JPanel{
 	}
 	
 	
+	//------------------------------------------------------------------------
+	
+	/*
+	 * Disegna il box con il numero di pietre per l' elemento selezionato
+	 */
 	public void disegnaInterface() {
 		
         BorderLayout b1=new BorderLayout();
@@ -42,6 +53,11 @@ public class PanelPietreTama extends JPanel{
 	}
 	
 	
+	//--------------------------------------------------------------------
+	
+	/**
+	 * Aggiunge pietre al conto
+	 */
 	public void addPietra() {
 		
 		numPietre++;
@@ -49,15 +65,27 @@ public class PanelPietreTama extends JPanel{
 		
 	}
 	
+	
+	//-------------------------------------------------------------------
+	
+	/**
+	 * Aggiorna il conto delle pietre
+	 */
 	public void aggiornaConto() {
 		
 		label1.setText(String.valueOf(numPietre));
 	}
 	
+	
+	//--------------------------------------------------------------------
+	
 	public int getNumPietre() {
 		
 		return numPietre;
 	}
+	
+	
+	//---------------------------------------------------------------
 	
 	public void resetPietre() {
 		

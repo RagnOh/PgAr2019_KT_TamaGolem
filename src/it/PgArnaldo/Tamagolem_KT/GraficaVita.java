@@ -20,6 +20,13 @@ public class GraficaVita extends JPanel{
 	   
 	   private int lunghezzaVita;
 	   
+	   
+	   //-------------------------------------------------------------
+	   
+	   /**
+	    * Gestisce la grafica della barra della vita del Tamagolem 
+	    * @param _lunghezzaVita lunghezza della vita del Tamagolem
+	    */
 	   public GraficaVita(int _lunghezzaVita) {
 		// TODO Auto-generated constructor stub
 		  
@@ -29,6 +36,12 @@ public class GraficaVita extends JPanel{
 		   
 	}
 
+	   
+	   //--------------------------------------------------------------
+	   
+	   /**
+	    * Disegna la barra della vita
+	    */
 	   @Override
 	   public void paintComponent(Graphics g) {
 	      super.paintComponent(g);
@@ -41,6 +54,12 @@ public class GraficaVita extends JPanel{
 	      
 	   }
 
+	   
+	   //----------------------------------------------------------------
+	   
+	   /**
+	    * Controlla le dimensioni del box che conterrà la barra della vita
+	    */
 	   @Override
 	   public Dimension getPreferredSize() {
 	      // so that our GUI is big enough

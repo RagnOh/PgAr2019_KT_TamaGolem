@@ -21,6 +21,12 @@ public class PanelScelta extends JPanel implements ItemListener {
 	private boolean giaP=false;
 	
 	
+	//-----------------------------------------------------------------
+	
+	/**
+	 * Gestisce il box per la scelta del Tamagolem
+	 * @param _tamaName nome del Tamagolem
+	 */
 	public PanelScelta(String _tamaName) {
 		
 		this.tamaName=_tamaName;
@@ -30,7 +36,11 @@ public class PanelScelta extends JPanel implements ItemListener {
 	}
 	
 	
+	//----------------------------------------------------------------
 	
+	/**
+	 * Disegna il box di scelta con i relativi componenti
+	 */
 	private void creaBox() {
 		
 		BorderLayout a = new BorderLayout();
@@ -71,25 +81,39 @@ public class PanelScelta extends JPanel implements ItemListener {
 	}
 	
 	
+	//----------------------------------------------------------------
+	
 	public boolean getIsSelected() {
 		
 		return isSelected;
 	}
+	
+	
+	//----------------------------------------------------------------
 	
 	public boolean getSelection() {
 		
 		return wasSelected;
 	}
 	
+	
+	//----------------------------------------------------------------
+	
 	public boolean giaP() {
 		
 		return giaP;
 	}
 	
+	
+	//---------------------------------------------------------------
+	
 	public void setgiaP(boolean a) {
 		
 		giaP=a;
 	}
+	
+	
+	//---------------------------------------------------------------
 	
 	public String getTamaName() {
 		

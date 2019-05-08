@@ -37,9 +37,11 @@ public class InterfacciaLotta extends JFrame implements KeyListener{
 	private int exit=0;
 	
 	
+	//---------------------------------------------------------------------
 	
-	
-
+    /**
+     *Disegna l' interfaccia di inizio programma 
+     */
 	public InterfacciaLotta() {
 		// TODO Auto-generated constructor stub
 		
@@ -56,6 +58,11 @@ public class InterfacciaLotta extends JFrame implements KeyListener{
 	
 	//----------------------------------------------------------------------------
 	
+	/**
+	 * Gestisce la grafica e la creazione della squadra con la relativa assegnazione degli elementi
+	 * @param p1 nome del giocatore 1
+	 * @param p2 nome del giocatore 2
+	 */
 	public void vivoLotta(String p1, String p2) {
 		
 	    s1=new Squadra(numTama);
@@ -246,6 +253,15 @@ public class InterfacciaLotta extends JFrame implements KeyListener{
 		
 	}
 
+	
+	//---------------------------------------------------------------------
+	
+	/**
+	 * Gestisce il cambio di Tamagolem
+	 * @param player Box giocatore
+	 * @param squad Squadra da cui prendere il Tamagolem
+	 * @param posizioneTama Posizione del tamagolem nell' array
+	 */
 	public void gestioneCambio(IGestioneSquad player,Squadra squad,int posizioneTama) {
 		
 		player.resetRis();

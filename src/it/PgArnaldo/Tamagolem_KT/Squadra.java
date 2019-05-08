@@ -11,16 +11,20 @@ public class Squadra
   private ArrayList <Tamagolem> squadraGolem = new ArrayList <Tamagolem> (); //Contiene i tamagolem di una Squadra
 
   
+  //------------------------------------------------------------------
+  
+  /**
+   * Gestisce la squadra di Tamagolem
+   * @param _numGolem
+   */
 	public Squadra (int _numGolem)
 	{
 		numGolem=_numGolem;
-		/*for (int i = 0; i< numGolem; i++)	// ciclo per la creazione dei golem -> da define poi
-		{
-
-		}*/
+		
 	}
 	
 	
+	//--------------------------------------------------------------
 	
 	/**
 	 * Aggiunge un Tamagolem alla squadra
@@ -40,6 +44,7 @@ public class Squadra
 	}
 	
 	
+	//----------------------------------------------------------------
 	
 	/**
 	 * Rimuove un Tamagolem dalla squadra 
@@ -47,14 +52,12 @@ public class Squadra
 	 */
 	public void removeTama(int posTama ) {
 		
-		
-       
-		
 		squadraGolem.remove(posTama);
 		
 	}
 	
 	
+	//----------------------------------------------------------------
 	
 	/**
 	 * Estrae il Tamagolem voluto dalla squadra dopo averlo cercato tramite nome 
@@ -80,6 +83,9 @@ public class Squadra
 		return squadraGolem.get(pos);
 	}
 	
+	
+	//------------------------------------------------------------------
+	
 	/**
 	 * Cerca il Tamagolem nella squadra in base al nome 
 	 * @param nomeTama Nome del Tamagolem da cercare
@@ -103,6 +109,7 @@ public class Squadra
 	}
 	
 	
+	//----------------------------------------------------------------
 	
 	/**
 	 * Stampa a video gli elementi della squadra
@@ -118,10 +125,15 @@ public class Squadra
 	}
 	
 
+	//---------------------------------------------------------------
+	
 	public int returnSize() {
 		
 		return squadraGolem.size();
 	}
+	
+	
+	//---------------------------------------------------------------
 	
 	public boolean retEmpty() {
 		

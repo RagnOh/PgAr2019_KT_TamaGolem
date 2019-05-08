@@ -7,12 +7,22 @@ public class Equilibrio
 	private final int NUM_ELEMENTI = 6;
 	private int[][] sistemaForze = new int[NUM_ELEMENTI][NUM_ELEMENTI];
 
+	
+	/**
+	 * Classe per gestire il rapporto di equilibrio tra gli elementi
+	 */
 	public Equilibrio ()		// serve per riempire la matrice equilibrio con i valori di efficienza dei diversi elementi
 	{
 		
 
 
 	}	// fine COSTRUTTORE
+	
+	//---------------------------------------------------------------------
+	
+	/**
+	 * Stampa i valori della tabella dell' equilibrio
+	 */
 	public void stampaValori ()
 	{
 		for (int i = 0; i < NUM_ELEMENTI; i++)
@@ -25,11 +35,26 @@ public class Equilibrio
 		}
 	}
 	
+	
+	//--------------------------------------------------------------------
+	
+	/**
+	 * Ritorna il valore della tabella data la riga e la colonna
+	 * @param elemento1 Riga della matrice
+	 * @param elemento2 Colonna della matrice
+	 * @return elemento della matrice corrispondente
+	 */
 	public int getValore(int elemento1,int elemento2) {
 		
 		return sistemaForze[elemento1][elemento2];
 	}
 	
+	
+	//--------------------------------------------------------------------
+	
+	/**
+	 * Crea la matrice per il rapporto tra gli elementi
+	 */
 	public void creaMatrice() {
 		int tmp = 0;
 		int danno = 0;

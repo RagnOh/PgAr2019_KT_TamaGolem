@@ -18,19 +18,31 @@ public class PanelSquadraBatt extends JPanel  {
 	
 	private GraficaVita boxVita;
 	
-	
 	private BorderLayout composition;
 	
 	private GraficaSaccaSfere sf1;
 	
+	private String nomeSquadra;
+	
+	
 	//---------------------------------------------------------------------------
-	public PanelSquadraBatt() {
+	
+	/**
+	 * Gestisce il box relativo alla squadra corrispondente
+	 * @param _nomeSquadra nome della squadra
+	 */
+	public PanelSquadraBatt(String _nomeSquadra) {
 		// TODO Auto-generated constructor stub
+	    nomeSquadra=_nomeSquadra;	
 	}
 	
 	
 	//---------------------------------------------------------------------------
 	
+	/**
+	 * Disegna i box della squadra corrispondente
+	 * @param panelMain Box che conterrà il tutto
+	 */
 	public void disegnaTeam(JPanel panelMain ) {
 		
 		
@@ -65,6 +77,10 @@ public class PanelSquadraBatt extends JPanel  {
 	
 	//--------------------------------------------------------------------------
 	
+	/**
+	 * Disegna il box delle vite
+	 * @param vitaTama Vita del tamagolem
+	 */
 	public void disegnaVita(int vitaTama) {
 		
 		if(vitaTama<=0) {
@@ -81,11 +97,15 @@ public class PanelSquadraBatt extends JPanel  {
 	}
 	
 	
+	
 	//--------------------------------------------------------------------------
 	
+	/**
+	 * Disegna il box centrale con il nome della squadra
+	 */
 	public void disegnaTama() {
 		
-		JLabel l1=new JLabel("tama");
+		JLabel l1=new JLabel(nomeSquadra);
 		panelTama.add(l1);
 		
 	}
@@ -93,6 +113,12 @@ public class PanelSquadraBatt extends JPanel  {
 	
 	//--------------------------------------------------------------------------
 	
+	/**
+	 * Disegna il box delle sfere posto a destra
+	 * @param element1 elemento pietra1 del tamagolem
+	 * @param element2 elemento pietra2 del tamagolem
+	 * @param element3 elemento pietra3 del tamagolem
+	 */
 	public void disegnaSfere(int element1,int element2,int element3) {
 		
 		 sf1=new GraficaSaccaSfere(element1,element2,element3);
@@ -107,6 +133,9 @@ public class PanelSquadraBatt extends JPanel  {
 
 	//--------------------------------------------------------------------------
 	
+	/**
+	 * Aggiorna la grafica
+	 */
 	public void Aggiorna() {
 		
 		sf1.switchSfere();

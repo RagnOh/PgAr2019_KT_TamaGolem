@@ -17,6 +17,13 @@ public class PanelPietre extends JPanel implements ActionListener {
 	private int click=0;
 	private String nomeElemento;
 	
+	
+	//-------------------------------------------------------------------
+	
+	/**
+	 * Crea il box con il pulsante per le pitre da assegnare
+	 * @param _nomeElemento Nome dell' elemento per la grafica
+	 */
 	public PanelPietre(String _nomeElemento) {
 		// TODO Auto-generated constructor stub
 		
@@ -26,6 +33,11 @@ public class PanelPietre extends JPanel implements ActionListener {
 	}
 	
 	
+	//------------------------------------------------------------------
+	
+	/**
+	 * Disegna il box delle pietre
+	 */
 	public void disegnaPanel() {
 		
 		BorderLayout b1=new BorderLayout();

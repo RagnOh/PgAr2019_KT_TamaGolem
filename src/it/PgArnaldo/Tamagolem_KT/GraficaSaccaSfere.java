@@ -18,6 +18,15 @@ public class GraficaSaccaSfere extends JPanel{
 	private int elemento2;
 	private int elemento3;
 	
+	
+	//------------------------------------------------------------------------
+	
+	/**
+	 * Gestisce la grafica delle pietre nella fase di battaglia
+	 * @param _elemento1 pietra elemento 1
+	 * @param _elemento2 pietra elemento 2
+	 * @param _elemento3 pietra elemento 3
+	 */
 	public GraficaSaccaSfere(int _elemento1,int _elemento2,int _elemento3) {
 		// TODO Auto-generated constructor stub
 		
@@ -26,6 +35,12 @@ public class GraficaSaccaSfere extends JPanel{
 		elemento3=_elemento3;
 	}
 	
+	
+	//------------------------------------------------------------------------
+	
+	/**
+	 * Disegna le pietre degli elementi ed il rettangolo che indica la pietra da lanciare
+	 */
 	  @Override
 	   public void paintComponent(Graphics g) {
 	      super.paintComponent(g);
@@ -44,12 +59,25 @@ public class GraficaSaccaSfere extends JPanel{
 	   }
 
 	  
+	  //---------------------------------------------------------------------
+	  
+	  /**
+	   * Controlla le dimensioni del box che conterrà le sfere
+	   */
 	  @Override
 	   public Dimension getPreferredSize() {
 	      // so that our GUI is big enough
 	      return new Dimension(BOX_WIDTH + 2 * BOX_X, BOX_HEIGHT + 2 * BOX_Y);
 	   }
 	 
+	  
+	  //---------------------------------------------------------------------
+	  
+	  /**
+	   * Imposta il colore della pietra in base all' elemento corrispondente
+	   * @param g elemento di grafica 
+	   * @param elemento il numero corrispondente all' elemento in tabella
+	   */
 	  private void setColore(Graphics g,int elemento) {
 		  
 		  switch (elemento) {
@@ -82,6 +110,12 @@ public class GraficaSaccaSfere extends JPanel{
 		  }
 	  }
 	  
+	  
+	  //---------------------------------------------------------------------
+	  
+	  /**
+	   * Gestisce l' animazione del cambio sfere
+	   */
 	  public void switchSfere() {
 		  
 		  int supporto=0;
