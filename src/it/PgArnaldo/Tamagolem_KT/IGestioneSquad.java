@@ -21,7 +21,7 @@ public class IGestioneSquad implements ActionListener{
 	private JLabel label2;
 	
 	private ArrayList<PanelScelta> scelte= new ArrayList<PanelScelta>();
-	private String [] nomi= { "Gaetano","b","Ciro","d","e","f","g","h","i","l"};
+	private String [] nomi= { "Gaetano","Perleka","Ciro","Artjam","Cerriso","Foxtrot","Kilo","Hantress","Iamme-Ya","Cromosomum"};
 	private BorderLayout bordi;
 	private  BorderLayout bordi2;
 	private int clicked=0;

@@ -120,7 +120,7 @@ public class Lotta extends JPanel{
 			
 			
 			
-			pausa1(600);
+			pausa1(1500);
 			
 			if(i<2) {
 				i++;
