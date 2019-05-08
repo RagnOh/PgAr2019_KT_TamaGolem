@@ -17,4 +17,4 @@ fuoco= rosso
 aria= azzurro
 acqua= blu
 kt= arancione
-etere= grigio
+etere= grigio.
