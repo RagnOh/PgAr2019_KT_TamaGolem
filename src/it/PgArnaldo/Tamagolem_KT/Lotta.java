@@ -73,18 +73,24 @@ public class Lotta extends JPanel{
 		
 		int i=0;
 		
-		team1=new PanelSquadraBatt();
-		team2=new PanelSquadraBatt();
+		team1=new PanelSquadraBatt("Squadra1");
+		team2=new PanelSquadraBatt("Squadra2");
 		
 		team1.disegnaTeam(pSquadra1);
 		team1.disegnaVita(tama1.getVita());
 		System.out.println("vitaTama1: "+tama1.getVita());
 		passaSfere(tama1,1);
 		
+		
 		team2.disegnaTeam(pSquadra2);
 		team2.disegnaVita(tama2.getVita());
 		System.out.println("vitaTama2: "+tama2.getVita());
 		passaSfere(tama2,2);
+		
+		controlloUguali();
+		
+		passaSfereGrafica(1);
+		passaSfereGrafica(2);
 		
 		panelA.validate();
 		panelA.repaint();
@@ -179,7 +185,7 @@ public class Lotta extends JPanel{
 		
 		if(squadra==1) {
 			
-			team1.disegnaSfere(elemento1, elemento2, elemento3);
+			//team1.disegnaSfere(elemento1, elemento2, elemento3);
 			
 			sfereTama1[0]=elemento1;
 			sfereTama1[1]=elemento2;
@@ -188,7 +194,7 @@ public class Lotta extends JPanel{
 		
 		else {
 			
-			team2.disegnaSfere(elemento1, elemento2, elemento3);
+			//team2.disegnaSfere(elemento1, elemento2, elemento3);
 			
 			sfereTama2[0]=elemento1;
 			sfereTama2[1]=elemento2;
@@ -196,22 +202,70 @@ public class Lotta extends JPanel{
 		}
 		
 	}
+     
+     
+     //------------------------------------------------------------------------------------
+     
+     public void passaSfereGrafica(int squadra) {
+    	 
+    	 if(squadra==1) {
+ 			
+ 			team1.disegnaSfere(sfereTama1[0], sfereTama1[1], sfereTama1[2]);
+ 			
+ 			
+ 		}
+ 		
+ 		else {
+ 			
+ 			team2.disegnaSfere(sfereTama2[0], sfereTama2[1], sfereTama2[2]);
+ 			
+ 			
+ 		}
+    	 
+     }
 	
 
-  //---------------------------------------------------------------------------
+   //---------------------------------------------------------------------------
      
      /**
       * Pausa temporale
       * @param tempo la durata della pausa
       */
-  private void pausa1(int tempo) {
+    private void pausa1(int tempo) {
 	
-	try {
+	  try {
 		Thread.sleep(tempo);
-	} catch (InterruptedException e) {
+	  } catch (InterruptedException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
-	}
-}
+	  }
+    }
 	
+    
+    //----------------------------------------------------------------------------
+    
+    public void controlloUguali() {
+    	
+    	if(sfereTama1[0]==sfereTama2[0] && sfereTama1[1]==sfereTama2[1] && sfereTama1[2]==sfereTama2[2]) {
+    		
+    		
+    		if(sfereTama1[0]==0) {
+    			
+    			sfereTama1[0]++;
+    		}
+    		
+    		else if(sfereTama1[0]==5) {
+    			
+    			sfereTama1[0]--;
+    			
+    		}
+    		
+    		else {
+    			
+    			sfereTama1[0]++;
+    		}
+    		
+    		
+    	}
+    }
 }

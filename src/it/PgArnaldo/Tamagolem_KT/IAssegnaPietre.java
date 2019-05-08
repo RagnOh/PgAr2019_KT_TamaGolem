@@ -207,7 +207,7 @@ public class IAssegnaPietre extends JPanel{
 	public void resetRisorse() {
 		
 
-		for(int i=0;i<NUMELEMENTI;i++) {
+		
 			
 			
 			addPietre.clear();
@@ -215,7 +215,7 @@ public class IAssegnaPietre extends JPanel{
 			
 			
 			
-			} 
+			
 		
 		numClick=0;
 	}

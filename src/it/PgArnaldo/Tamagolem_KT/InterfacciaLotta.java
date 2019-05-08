@@ -113,7 +113,7 @@ public class InterfacciaLotta extends JFrame implements KeyListener{
 			System.out.println("tama1 morto");
 			s1.removeTama(posTama1);
 			
-			gestioneCambio(player1, s1, posTama1);
+			gestioneCambio(player1, s1, posTama1,1);
 			
 			panelA.validate();
 			panelA.repaint();
@@ -125,7 +125,7 @@ public class InterfacciaLotta extends JFrame implements KeyListener{
 			System.out.println("tama2 morto");
 			s2.removeTama(posTama2);
 			
-			gestioneCambio(player2, s2, posTama2);
+			gestioneCambio(player2, s2, posTama2,2);
 			
 			panelA.validate();
 			panelA.repaint();
@@ -144,6 +144,7 @@ public class InterfacciaLotta extends JFrame implements KeyListener{
 		
 		panelA.add(label1,BorderLayout.CENTER);
 		
+		label1.setVisible(true);
 		panelA.validate();
 		panelA.repaint();
 		
@@ -262,13 +263,22 @@ public class InterfacciaLotta extends JFrame implements KeyListener{
 	 * @param squad Squadra da cui prendere il Tamagolem
 	 * @param posizioneTama Posizione del tamagolem nell' array
 	 */
-	public void gestioneCambio(IGestioneSquad player,Squadra squad,int posizioneTama) {
+	public void gestioneCambio(IGestioneSquad player,Squadra squad,int posizioneTama,int numsquadra) {
 		
 		player.resetRis();
 		
 		panelA.removeAll();
 		
 		posizioneTama=player.evocaAltroTama(panelA);
+		
+		if(numsquadra==1) {
+			
+			posTama1=posizioneTama;
+		}
+		else if(numsquadra==2) {
+			
+			posTama2=posizioneTama;
+		}
 		
 		a.drawInterface(panelA,squad.getTama(posizioneTama).getNome()+"   Team1");
 		a.copyIntoTama(squad.getTama(posizioneTama));

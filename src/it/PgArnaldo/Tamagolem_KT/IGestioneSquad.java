@@ -247,7 +247,7 @@ public class IGestioneSquad implements ActionListener,KeyListener{
 		
 		
 		
-		label1 = new JLabel(nomeGiocatore);
+		label1 = new JLabel(nomeGiocatore+" evoca un altro Tamagolem");
 		label2 = new JLabel("dic");
 		
 		inizArray(1);
