@@ -11,3 +11,10 @@ In seguito si viene portati in un interfaccia per assegnare 3 pietre al corrispe
 Si avvia quindi la fase di lotta con a sinistra la vita del tamagolem mentre a destra le pietre che il tamagolem possiede.
 La pietra che verrà usata dal tamagolem si trova all' interno del quadrato.
 Una volta morto un tamagolem bisognerà sceglierne un altro dalla propria squadra ed assegnargli le pietre degli elementi.
+Legenda Pietre:
+erba= verde
+fuoco= rosso
+aria= azzurro
+acqua= blu
+kt= arancione
+etere= grigio.
