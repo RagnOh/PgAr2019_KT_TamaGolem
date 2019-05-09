@@ -12,9 +12,10 @@ Si avvia quindi la fase di lotta con a sinistra la vita del tamagolem mentre a d
 La pietra che verrà usata dal tamagolem si trova all' interno del quadrato.
 Una volta morto un tamagolem bisognerà sceglierne un altro dalla propria squadra ed assegnargli le pietre degli elementi.
 Legenda Pietre:
-erba= verde
-fuoco= rosso
-aria= azzurro
-acqua= blu
-kt= arancione
-etere= grigio.
+erba= verde/
+fuoco= rosso/
+aria= azzurro/
+acqua= blu/
+kt= arancione/
+etere= grigio./
+_!!!!!--Impostare il compilatore nella versione 1.8 e aggiungere la libreria unibs alegata.--!!!!!!_
